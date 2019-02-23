@@ -6,7 +6,7 @@ Use the class JSONFactory to create the JSONObject with the specfied parameters.
 <pre>
 <code>  import jsonrpc.parser.JSONFactory;
   int startId = 0;
-  String[] argsList = {"arg","arg1};
+  String[] argsList = {"arg","arg1"};
   String JSONString = JSONFactory.getInstance().getRequest("methodName",argsList,startId).parse(); 
 </code></pre>
 If the client is not interested in receiving a response from the server the method <code>getNotification("method",args)</code> can be used instead (this sets the message's id field to null signalling that a response is not required).<br>
@@ -32,5 +32,5 @@ The deparsing is performed by the class jsonrpc.deparser.Translator. This class 
 The deparsedElement class holds a map that links the request or response's fields to their values. For example to extract the method field from a request this is the required code:
 <pre>
 <code>DeparsedContainer container = Translator().decode(JSONString);
-String method = container.getElements()[0].getElement().get("method);
+String method = container.getElements()[0].getElement().get("method");
 </code></pre>
